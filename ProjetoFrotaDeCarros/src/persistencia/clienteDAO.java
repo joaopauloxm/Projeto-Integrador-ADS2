@@ -7,7 +7,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 public class clienteDAO {
-    private String arquivoDeCliente = "C:\\Users\\aluno\\Desktop\\Cliente.csv";
+    private String arquivoDeCliente = "C:\\Users\\aluno\\Documents\\GitHub\\Projeto-Integrador-ADS2\\Cliente.txt";
     
     public void incluir(Object objeto) throws Exception {
         cadastroCliente objCliente = (cadastroCliente) (objeto);
@@ -16,8 +16,9 @@ public class clienteDAO {
         
         try {
             fileCliente = new FileWriter(arquivoDeCliente,true);
+            bufferCliente = new BufferedWriter(fileCliente);
             String aux1 = objCliente.getNomeDoCliente()+","+objCliente.getCPF()+","+ objCliente.getEndereco()+","+
-                    objCliente.getCNH()+","+ objCliente.getTelRes()+","+ objCliente.getTelCel();
+            objCliente.getCNH()+","+ objCliente.getTelRes()+","+ objCliente.getTelCel()+"\n";
             bufferCliente.write(aux1);
             bufferCliente.close();
         } catch (Exception e) {
