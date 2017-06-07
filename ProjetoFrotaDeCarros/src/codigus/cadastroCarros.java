@@ -11,6 +11,7 @@ public class cadastroCarros {
     private float valorDoCarro = 0;
     
      public void cadastroCarros(String nomeDoCarro, String marcaDoCarro, String modeloDoCarro, int anoDoCarro,String placaDoCarro, float valorDoCarro){
+        
          this.nomeDoCarro = nomeDoCarro;
          this.marcaDoCarro = marcaDoCarro;
          this.modeloDoCarro = modeloDoCarro;
@@ -57,6 +58,16 @@ public class cadastroCarros {
 
     public void setValorDoCarro(float valorDoCarro) {
         this.valorDoCarro = valorDoCarro;
+    }
+
+    
+
+    public String getPlacaDoCarro() {
+        return placaDoCarro;
+    }
+
+    public void setPlacaDoCarro(String placaDoCarro) {
+        this.placaDoCarro = placaDoCarro;
     }
     
     
