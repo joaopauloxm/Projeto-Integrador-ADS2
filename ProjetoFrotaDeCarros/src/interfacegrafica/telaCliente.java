@@ -5,6 +5,7 @@ import codigus.cadastroCliente;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import persistencia.clienteDAO;
+import codigus.cadastroMarca;
 
 /**
  *
