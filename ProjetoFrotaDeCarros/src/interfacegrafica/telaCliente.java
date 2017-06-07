@@ -168,7 +168,7 @@ public class telaCliente extends javax.swing.JFrame {
        
         try {
         
-        cadastroCliente eu = new cadastroCliente(jTextFieldNome.getText(), Integer.parseInt(jTextFieldCpf.getText()), jTextFieldEndereco.getText(), jTextFieldBairro.getText(), Integer.parseInt(jTextFieldCnh.getText()), Integer.parseInt(jTextFieldTelRes.getText()), Integer.parseInt(jTextFieldTelCel.getText()));
+        cadastroCliente eu = new cadastroCliente(jTextFieldNome.getText(), Float.parseFloat(jTextFieldCpf.getText()), jTextFieldEndereco.getText(), jTextFieldBairro.getText(), Integer.parseInt(jTextFieldCnh.getText()), Float.parseFloat(jTextFieldTelRes.getText()), Float.parseFloat(jTextFieldTelCel.getText()));
         clienteDAO obj = new clienteDAO();
         
        obj.incluir(eu);

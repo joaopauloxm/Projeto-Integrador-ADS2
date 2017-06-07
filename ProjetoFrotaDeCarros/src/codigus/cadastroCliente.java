@@ -3,15 +3,18 @@ package codigus;
 
 
 public class cadastroCliente {
+
+   
     private String nomeDoCliente = "";
-    private int CPF = 0;
+    private float CPF = 0;
     private String endereco = "";
     private String bairro = "";
-    private int CNH = 0;
-    private int telRes = 0;
-    private int telCel = 0;
+    private float CNH = 0;
+    private float telRes = 0;
+    private float telCel = 0;
     
-    public cadastroCliente(String nomeDoCliente, int CPF, String endereco,String bairro, int CNH, int telRes, int telCel){
+    public cadastroCliente(String nomeDoCliente, float CPF, String endereco,String bairro, float CNH, float telRes, float telCel){
+        
         this.nomeDoCliente = nomeDoCliente;
         this.CPF = CPF;
         this.endereco = endereco;
@@ -29,11 +32,11 @@ public class cadastroCliente {
         this.nomeDoCliente = nomeDoCliente;
     }
 
-    public int getCPF() {
+    public float getCPF() {
         return CPF;
     }
 
-    public void setCPF(int CPF) {
+    public void setCPF(float CPF) {
         this.CPF = CPF;
     }
 
@@ -45,19 +48,19 @@ public class cadastroCliente {
         this.endereco = endereco;
     }
 
-    public int getCNH() {
+    public float getCNH() {
         return CNH;
     }
 
-    public void setCNH(int CNH) {
+    public void setCNH(float CNH) {
         this.CNH = CNH;
     }
 
-    public int getTelRes() {
+    public float getTelRes() {
         return telRes;
     }
 
-    public void setTelRes(int telRes) {
+    public void setTelRes(float telRes) {
         this.telRes = telRes;
     }
 
@@ -69,12 +72,11 @@ public class cadastroCliente {
         this.bairro = bairro;
     }
 
-    public int getTelCel() {
+    public float getTelCel() {
         return telCel;
     }
 
-    public void setTelCel(int telCel) {
+    public void setTelCel(float telCel) {
         this.telCel = telCel;
-    }
-    
+    }    
 }
