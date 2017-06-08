@@ -7,7 +7,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 public class marcaDAO {
-    private String arquivoDeMarca = "C:\\Users\\aluno\\Documents\\GitHub\\Projeto-Integrador-ADS2\\Marca.txt";
+    private String arquivoDeMarca = "C:\\Users\\Joao\\Documents\\GitHub\\Projeto-Integrador-ADS2\\ProjetoFrotaDeCarros\\Marca.txt";
     
     public void incluir (Object objeto)throws Exception{
         cadastroMarca objMarca = (cadastroMarca)(objeto);
@@ -17,7 +17,7 @@ public class marcaDAO {
         try {
            fileMarca = new FileWriter(arquivoDeMarca);
            bufferMarca = new BufferedWriter(fileMarca);
-           String aux1 = objMarca.getMarca()+quebraLinha;
+           String aux1 = objMarca.getMarca()+ quebraLinha;
            bufferMarca.write(aux1);
            bufferMarca.close();
         } catch (Exception e) {
