@@ -22,9 +22,9 @@ public class marcaDAO {
            bufferMarca.close();
         } catch (Exception e) {
         }
-{
+
             
         }
     }
     
-}
+

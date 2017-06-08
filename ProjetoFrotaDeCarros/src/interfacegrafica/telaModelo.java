@@ -5,16 +5,22 @@
  */
 package interfacegrafica;
 
+import codigus.cadastroMarca;
+import codigus.cadastroModelo;
+import javax.swing.JTextField;
+import persistencia.marcaDAO;
+import persistencia.modeloDAO;
+
 /**
  *
  * @author Joao
  */
-public class TelaModelo extends javax.swing.JFrame {
+public class telaModelo extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaModelo
      */
-    public TelaModelo() {
+    public telaModelo() {
         initComponents();
     }
 
@@ -48,6 +54,11 @@ public class TelaModelo extends javax.swing.JFrame {
         });
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,7 +100,30 @@ public class TelaModelo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
+        try {
+            cadastroModelo eu = null;
+        eu = new cadastroModelo(jTextFieldModelo.getText());
+        
+        modeloDAO ele = new modeloDAO();
+        ele.incluir(eu);
+        
+        jTextFieldModelo.setText("");
+        } catch (Exception e) {
+        }
+        
+        
+        
+        
+        
+        
+       
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        principal tela1 = new principal ();
+        tela1.setVisible(true);
+        dispose ();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,20 +142,21 @@ public class TelaModelo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaModelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaModelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaModelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaModelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaModelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaModelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaModelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaModelo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaModelo().setVisible(true);
+                new telaModelo().setVisible(true);
             }
         });
     }
