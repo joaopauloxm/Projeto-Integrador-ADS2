@@ -18,7 +18,7 @@ public class carroDAO  {
         try {
             fileCarro = new FileWriter(arquivoDeCarros,true);
             bufferCarro = new BufferedWriter(fileCarro);
-            String aux1 = objCarro.getNomeDoCarro()+","+ objCarro.getMarcaDoCarro()+","+ objCarro.getModeloDoCarro()+","+
+            String aux1 = objCarro.getModeloDoCarro()+","+objCarro.getMarcaDoCarro()+","+ 
                     objCarro.getAnoDoCarro()+","+ objCarro.getValorDoCarro()+quebraLinha;
                     bufferCarro.write(aux1);
                     bufferCarro.close();
