@@ -2,8 +2,10 @@
 package codigus;
 
 import codigus.cadastroMarca;
+import java.util.ArrayList;
 
 public class cadastroCarros {
+    private ArrayList<cadastroCarros> carro = new ArrayList<cadastroCarros>();
     private String marcaDoCarro = "";
     private String modeloDoCarro = "";
     private int anoDoCarro = 0;

@@ -5,11 +5,14 @@
  */
 package codigus;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Joao
  */
 public class cadastroModelo {
+    private ArrayList<cadastroModelo> modelos = new ArrayList<cadastroModelo>();
     private int identificador = 0;
     private String modelo = "";
     

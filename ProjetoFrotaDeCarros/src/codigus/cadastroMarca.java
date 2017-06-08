@@ -1,12 +1,20 @@
 
 package codigus;
 
+import java.util.ArrayList;
+
 
 public class cadastroMarca {
-    private int identificador = 0;
+   
+    private ArrayList<cadastroMarca> marcas = new ArrayList<cadastroMarca>();    
+    
     private String marca = "";
 
     
+            
+            
+    
+   
     
     public cadastroMarca(String marca){
         this.marca = marca;
@@ -20,12 +28,5 @@ public class cadastroMarca {
         this.marca = marca;
     }
 
-    public int getIdentificador() {
-        return identificador;
-    }
-
-    public void setIdentificador(int identificador) {
-        this.identificador = identificador;
-    }
     
 }
