@@ -8,7 +8,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 public class carroDAO  {
-    private String arquivoDeCarros = "C:\\Users\\aluno\\Documents\\GitHub\\Projeto-Integrador-ADS2\\carro.txt";
+    private String arquivoDeCarros = "C:\\Users\\Joao\\Documents\\GitHub\\Projeto-Integrador-ADS2\\ProjetoFrotaDeCarros\\carro.txt";
     
     public void incluir(Object objeto)throws Exception{
         cadastroCarros objCarro =(cadastroCarros)(objeto);
@@ -18,8 +18,14 @@ public class carroDAO  {
         try {
             fileCarro = new FileWriter(arquivoDeCarros,true);
             bufferCarro = new BufferedWriter(fileCarro);
-            String aux1 = objCarro.getModeloDoCarro()+","+objCarro.getMarcaDoCarro()+","+ 
-                    objCarro.getAnoDoCarro()+","+ objCarro.getValorDoCarro()+quebraLinha;
+            String aux1 = objCarro.getMarcaDoCarro()+","+
+                    objCarro.getModeloDoCarro()+","+ 
+                    objCarro.getPlacaDoCarro() + "," +
+                    objCarro.getAnoDoCarro()+","+
+                    objCarro.getChassi() + "," + 
+                    objCarro.getCor()+ ","+ 
+                    objCarro.getValorTrabalho()+ "," + 
+                    objCarro.getValorPessoal()+quebraLinha;
                     bufferCarro.write(aux1);
                     bufferCarro.close();
         } catch (Exception e) {

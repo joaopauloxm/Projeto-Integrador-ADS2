@@ -8,7 +8,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 public class clienteDAO {
-    private String arquivoDeCliente = "C:\\Users\\aluno\\Documents\\GitHub\\Projeto-Integrador-ADS2\\Cliente.txt";
+    private String arquivoDeCliente = "C:\\Users\\Joao\\Documents\\GitHub\\Projeto-Integrador-ADS2\\ProjetoFrotaDeCarros\\Cliente.txt";
     
     public void incluir(Object objeto) throws Exception {
         cadastroCliente objCliente = (cadastroCliente) (objeto);
