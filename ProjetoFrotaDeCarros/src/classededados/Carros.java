@@ -1,11 +1,19 @@
 
 package classededados;
 
+<<<<<<< HEAD:ProjetoFrotaDeCarros/src/classededados/Carros.java
 import classededados.Marca;
 import java.util.ArrayList;
 
 public class Carros {
     private int identificador = 0;
+=======
+import codigus.cadastroMarca;
+import java.util.ArrayList;
+
+public class cadastroCarros {
+    private ArrayList<cadastroCarros> carro = new ArrayList<cadastroCarros>();
+>>>>>>> 0aae76b945a7a28cc8fd28c7246a5570da6c599d:ProjetoFrotaDeCarros/src/codigus/cadastroCarros.java
     private String marcaDoCarro = "";
     private String modeloDoCarro = "";
     private int anoDoCarro = 0;
