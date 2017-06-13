@@ -1,9 +1,11 @@
 
-package codigus;
+package classededados;
 
-import codigus.cadastroMarca;
+import classededados.Marca;
+import java.util.ArrayList;
 
-public class cadastroCarros {
+public class Carros {
+    private int identificador = 0;
     private String marcaDoCarro = "";
     private String modeloDoCarro = "";
     private int anoDoCarro = 0;
@@ -14,11 +16,12 @@ public class cadastroCarros {
     private float valorPessoal = 0;
             
     
-     public cadastroCarros(String modeloDoCarro, String marcaDoCarro,  int anoDoCarro,String placaDoCarro, float valorTrabalho, float valorPessoal, int chassi, String cor){
+     public Carros(int identificador, String placaDoCarro, String modeloDoCarro, String marcaDoCarro,  int anoDoCarro, float valorTrabalho, float valorPessoal, int chassi, String cor){
+         this.identificador = identificador;
+         this.placaDoCarro = placaDoCarro;
          this.marcaDoCarro = marcaDoCarro;
          this.modeloDoCarro = modeloDoCarro;
          this.anoDoCarro = anoDoCarro;
-         this.placaDoCarro = placaDoCarro;
          this.valorTrabalho = valorTrabalho;
          this.valorPessoal = valorPessoal;
          this.chassi = chassi;
@@ -110,6 +113,14 @@ public class cadastroCarros {
 
     public void setValorPessoal(float valorPessoal) {
         this.valorPessoal = valorPessoal;
+    }
+
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
     }
     
     

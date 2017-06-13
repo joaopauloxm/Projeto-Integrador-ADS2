@@ -5,10 +5,8 @@
  */
 package interfacegrafica;
 
-import codigus.cadastroMarca;
-import codigus.cadastroModelo;
-import javax.swing.JTextField;
-import persistencia.marcaDAO;
+import classededados.GeradorId;
+import classededados.Modelo;
 import persistencia.modeloDAO;
 
 /**
@@ -101,8 +99,10 @@ public class telaModelo extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         try {
-            cadastroModelo eu = null;
-        eu = new cadastroModelo(jTextFieldModelo.getText());
+            GeradorId geradorId = new GeradorId();
+            Modelo eu = null;
+        eu = new Modelo(geradorId.getIdModelo(), jTextFieldModelo.getText());
+        geradorId.finalize();
         
         modeloDAO ele = new modeloDAO();
         ele.incluir(eu);

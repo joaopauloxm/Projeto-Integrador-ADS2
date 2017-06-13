@@ -5,8 +5,9 @@
  */
 package interfacegrafica;
 
-import codigus.cadastroMarca;
-import persistencia.marcaDAO;
+import classededados.GeradorId;
+import classededados.Marca;
+import persistencia.MarcaDAO;
 import interfacegrafica.telaCarro;
 
 /**
@@ -104,10 +105,12 @@ public class telaMarca extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-        cadastroMarca eu = null;
-        eu = new cadastroMarca(jTextFieldMarca.getText());
+            GeradorId geradorId = new GeradorId();
+            Marca eu = null;
+        eu = new Marca(geradorId.getIdMarca(),jTextFieldMarca.getText());
+        geradorId.finalize();
         
-        marcaDAO ele = new marcaDAO();
+        MarcaDAO ele = new MarcaDAO();
         ele.incluir(eu);
         
         

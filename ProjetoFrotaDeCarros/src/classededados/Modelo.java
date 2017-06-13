@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package codigus;
+package classededados;
 
 /**
  *
  * @author Joao
  */
-public class cadastroModelo {
+public class Modelo {
     private int identificador = 0;
     private String modelo = "";
     
-    public cadastroModelo ( String modelo){
-        
+    public Modelo(int identificador, String modelo){
+        this.identificador = identificador;
         this.modelo = modelo;
+    }
+
+    public Modelo() {
     }
 
     public int getIdentificador() {
@@ -30,7 +33,7 @@ public class cadastroModelo {
         return modelo;
     }
 
-    public void setModelo(String marca) {
+    public void setModelo(String modelo) {
         this.modelo = modelo;
     }
          

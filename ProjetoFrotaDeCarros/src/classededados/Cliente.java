@@ -1,22 +1,22 @@
 
-package codigus;
+package classededados;
 
 
-public class cadastroCliente {
+public class Cliente {
 
-   
-    private String nomeDoCliente = "";
+    private int identificador = 0;
     private float CPF = 0;
+    private String nomeDoCliente = "";
     private String endereco = "";
     private String bairro = "";
     private float CNH = 0;
     private float telRes = 0;
     private float telCel = 0;
     
-    public cadastroCliente(String nomeDoCliente, float CPF, String endereco,String bairro, float CNH, float telRes, float telCel){
-        
-        this.nomeDoCliente = nomeDoCliente;
+    public Cliente(int identificador, float CPF, String nomeDoCliente, String endereco,String bairro, float CNH, float telRes, float telCel){
+        this.identificador = identificador;
         this.CPF = CPF;
+        this.nomeDoCliente = nomeDoCliente;
         this.endereco = endereco;
         this.bairro = bairro;
         this.CNH = CNH;
@@ -78,5 +78,14 @@ public class cadastroCliente {
 
     public void setTelCel(float telCel) {
         this.telCel = telCel;
-    }    
+    } 
+
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
+    
 }

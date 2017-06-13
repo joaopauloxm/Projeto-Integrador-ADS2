@@ -1,15 +1,19 @@
 
-package codigus;
+package classededados;
 
 
-public class cadastroMarca {
+public class Marca {
     private int identificador = 0;
     private String marca = "";
 
     
     
-    public cadastroMarca(String marca){
+    public Marca(int identificador ,String marca){
+        this.identificador = identificador;
         this.marca = marca;
+    }
+
+    public Marca() {
     }
 
     public String getMarca() {

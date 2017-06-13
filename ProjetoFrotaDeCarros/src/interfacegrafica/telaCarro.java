@@ -5,24 +5,60 @@
  */
 package interfacegrafica;
 
-import codigus.cadastroCarros;
+import classededados.GeradorId;
+import classededados
+        
+        .Marca;
+import classededados.Carros;
+import classededados.Modelo;
 import interfacegrafica.telaMarca;
+import java.util.ArrayList;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import persistencia.carroDAO;
-import persistencia.marcaDAO;
+import persistencia.MarcaDAO;
+import persistencia.modeloDAO;
 
 /**
  *
  * @author aluno
  */
 public class telaCarro extends javax.swing.JFrame {
-
-    /**
-     * Creates new form telaCarro
-     */
-    public telaCarro() {
+MarcaDAO daoMarca = null;
+    
+    public telaCarro() throws Exception {
         initComponents();
+        ArrayList<Marca> listaDeMarca;
+        ArrayList<String> listaDeMarcaString = new ArrayList<>();
+        daoMarca = new MarcaDAO();
+        listaDeMarca = daoMarca.recuperarMarca();
+        for(int pos=0; pos<listaDeMarca.size(); pos++){
+            String saida;
+            Marca aux= listaDeMarca.get(pos);
+            aux = listaDeMarca.get(pos);
+            saida = aux.getMarca();
+            
+            listaDeMarcaString.add(saida);
+        }
+            jComboBoxMarca.setModel(new DefaultComboBoxModel(new Vector(listaDeMarcaString)));
+        
+        ArrayList<Modelo> listaDeModelo;
+        ArrayList<String> listaDeModeloString = new ArrayList<>();
+        modeloDAO dao = new modeloDAO();
+        listaDeModelo = dao.recuperarModelo();
+        for(int pos=0; pos<listaDeModelo.size(); pos++){
+            String saida;
+           Modelo aux= listaDeModelo.get(pos);
+            aux = listaDeModelo.get(pos);
+            saida = aux.getModelo();
+            
+            listaDeModeloString.add(saida);
+        }
+            jComboBoxModelo.setModel(new DefaultComboBoxModel(new Vector(listaDeModeloString)));
+        
+        
     }
 
     /**
@@ -210,11 +246,12 @@ public class telaCarro extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         try {
-            cadastroCarros eu = new cadastroCarros
-                    (jComboBoxModelo.getSelectedItem().toString(),
+            GeradorId geradorId = new GeradorId ();
+            Carros eu = new Carros
+                    (geradorId.getIdMarca(),jTextFieldPlaca.getText(),
+                    jComboBoxModelo.getSelectedItem().toString(),
                     jComboBoxMarca.getSelectedItem().toString(),  
                     Integer.parseInt(jTextFieldAno.getText()) , 
-                    jTextFieldPlaca.getText(),
                     Float.parseFloat(jTextFieldValorTrabalho.getText()),
                     Float.parseFloat(jTextFieldPessoal.getText()), 
                     Integer.parseInt(jTextFieldChassi.getText()), 
@@ -223,6 +260,14 @@ public class telaCarro extends javax.swing.JFrame {
         
         carroDAO ele = new carroDAO();
             ele.incluir(eu);
+            
+            jTextFieldAno.setText("");
+            jTextFieldChassi.setText("");
+            jTextFieldCor.setText("");
+            jTextFieldPessoal.setText("");
+            jTextFieldPlaca.setText("");
+            jTextFieldValorTrabalho.setText("");
+            
         } catch (Exception ex) {
             Logger.getLogger(telaCarro.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -230,44 +275,21 @@ public class telaCarro extends javax.swing.JFrame {
 
     private void jComboBoxMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMarcaActionPerformed
         
-        
     }//GEN-LAST:event_jComboBoxMarcaActionPerformed
 
     private void jTextFieldPessoalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPessoalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPessoalActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(telaCarro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(telaCarro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(telaCarro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(telaCarro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
+public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new telaCarro().setVisible(true);
+                try {
+                    new telaCarro().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(telaCarro.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
