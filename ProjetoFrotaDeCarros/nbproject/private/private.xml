@@ -3,6 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/persistencia/carroDAO.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/interfacegrafica/telaModelo.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/interfacegrafica/TelaDeLocação.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/classededados/cadastroModelo.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/interfacegrafica/PesquisarCliente.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/persistencia/clienteDAO.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/interfacegrafica/telaMarca.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/classededados/GeradorId.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/interfacegrafica/telaCliente.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/classededados/Marca.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/classededados/Carros.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/classededados/Cliente.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/interfacegrafica/telaCarro.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/persistencia/modeloDAO.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/interfacegrafica/principal.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/persistencia/MarcaDAO.java</file>
+            <file>file:/C:/Users/Joao/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/interfaces/CRUD.java</file>
+=======
             <file>file:/C:/Users/aluno/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/codigus/cadastroCliente.java</file>
             <file>file:/C:/Users/aluno/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/interfacegrafica/telaCliente.java</file>
             <file>file:/C:/Users/aluno/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/interfaces/CRUD.java</file>
@@ -14,6 +33,7 @@
             <file>file:/C:/Users/aluno/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/codigus/cadastroCarros.java</file>
             <file>file:/C:/Users/aluno/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/interfacegrafica/principal.java</file>
             <file>file:/C:/Users/aluno/Documents/GitHub/Projeto-Integrador-ADS2/ProjetoFrotaDeCarros/src/persistencia/marcaDAO.java</file>
+>>>>>>> 0aae76b945a7a28cc8fd28c7246a5570da6c599d
         </group>
     </open-files>
 </project-private>

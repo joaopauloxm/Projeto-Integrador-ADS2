@@ -1,11 +1,13 @@
 
 package interfacegrafica;
 
-import codigus.cadastroCliente;
+import classededados.GeradorId;
+import classededados.Cliente;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import persistencia.clienteDAO;
-import codigus.cadastroMarca;
+import classededados.Marca;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,6 +46,7 @@ public class telaCliente extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextFieldTelCel = new javax.swing.JTextField();
         jButtonCadastrar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -74,6 +77,13 @@ public class telaCliente extends javax.swing.JFrame {
         jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCadastrarActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Pesquisar cliente cadastrado");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -121,8 +131,11 @@ public class telaCliente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldTelCel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(56, 56, 56)
+                        .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jButton2)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -152,7 +165,9 @@ public class telaCliente extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(46, 46, 46)
                 .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(9, 9, 9)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1))
         );
 
@@ -166,17 +181,47 @@ public class telaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
-       
+       if (jTextFieldBairro.getText().isEmpty() ||
+               jTextFieldCnh.getText().isEmpty() || 
+               jTextFieldCpf.getText().isEmpty() ||
+               jTextFieldEndereco.getText().isEmpty() ||
+               jTextFieldNome.getText().isEmpty() ||
+               jTextFieldTelCel.getText().isEmpty() ||
+               jTextFieldTelRes.getText().isEmpty()
+               )
+           JOptionPane.showMessageDialog(rootPane,"Preencha todos os campos");
         try {
-        
-        cadastroCliente eu = new cadastroCliente(jTextFieldNome.getText(), Float.parseFloat(jTextFieldCpf.getText()), jTextFieldEndereco.getText(), jTextFieldBairro.getText(), Integer.parseInt(jTextFieldCnh.getText()), Float.parseFloat(jTextFieldTelRes.getText()), Float.parseFloat(jTextFieldTelCel.getText()));
+        GeradorId geradorId = new GeradorId();
+        Cliente eu = new Cliente(geradorId.getIdMarca(),
+                jTextFieldCpf.getText(),
+                jTextFieldNome.getText(), 
+                jTextFieldEndereco.getText(), 
+                jTextFieldBairro.getText(), 
+                jTextFieldCnh.getText(),
+                jTextFieldTelRes.getText(),
+                jTextFieldTelCel.getText());
         clienteDAO obj = new clienteDAO();
         
        obj.incluir(eu);
+       JOptionPane.showMessageDialog(rootPane,"Cadastro efetuado com sucesso");
+       jTextFieldBairro.setText("");
+       jTextFieldCnh.setText("");
+       jTextFieldCpf.setText("");
+       jTextFieldEndereco.setText("");
+       jTextFieldNome.setText("");
+       jTextFieldTelCel.setText("");
+       jTextFieldTelRes.setText("");
+       
         } catch (Exception ex) {
             Logger.getLogger(telaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        PesquisarCliente tela1 = new PesquisarCliente();
+        tela1.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,6 +260,7 @@ public class telaCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

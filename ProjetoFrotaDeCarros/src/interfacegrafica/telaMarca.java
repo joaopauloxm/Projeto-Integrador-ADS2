@@ -5,9 +5,11 @@
  */
 package interfacegrafica;
 
-import codigus.cadastroMarca;
-import persistencia.marcaDAO;
+import classededados.GeradorId;
+import classededados.Marca;
+import persistencia.MarcaDAO;
 import interfacegrafica.telaCarro;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -103,14 +105,19 @@ public class telaMarca extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-        cadastroMarca eu = null;
-        eu = new cadastroMarca(jTextFieldMarca.getText());
+        if (jTextFieldMarca.getText().isEmpty())
+            JOptionPane.showMessageDialog(rootPane, "Preencha o campo marca");
         
-        marcaDAO ele = new marcaDAO();
+        try {
+            GeradorId geradorId = new GeradorId();
+            Marca eu = null;
+        eu = new Marca(geradorId.getIdMarca(),jTextFieldMarca.getText());
+        geradorId.finalize();
+        
+        MarcaDAO ele = new MarcaDAO();
         ele.incluir(eu);
         
-        
+        JOptionPane.showMessageDialog(rootPane,"Cadastro efetuado com sucesso");
         
         jTextFieldMarca.setText("");
         } catch (Exception e) {

@@ -1,22 +1,26 @@
 
-package codigus;
+package classededados;
 
 
-public class cadastroCliente {
+public class Cliente {
 
-   
+    private int identificador = 0;
+    private String CPF = "";
     private String nomeDoCliente = "";
-    private float CPF = 0;
     private String endereco = "";
     private String bairro = "";
-    private float CNH = 0;
-    private float telRes = 0;
-    private float telCel = 0;
+    private String CNH = "";
+    private String telRes = "";
+    private String telCel = "";
     
-    public cadastroCliente(String nomeDoCliente, float CPF, String endereco,String bairro, float CNH, float telRes, float telCel){
-        
-        this.nomeDoCliente = nomeDoCliente;
+    
+    public Cliente(){
+    }
+    
+    public Cliente(int identificador, String CPF, String nomeDoCliente, String endereco,String bairro, String CNH, String telRes, String telCel){
+        this.identificador = identificador;
         this.CPF = CPF;
+        this.nomeDoCliente = nomeDoCliente;
         this.endereco = endereco;
         this.bairro = bairro;
         this.CNH = CNH;
@@ -32,11 +36,11 @@ public class cadastroCliente {
         this.nomeDoCliente = nomeDoCliente;
     }
 
-    public float getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(float CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
@@ -48,19 +52,19 @@ public class cadastroCliente {
         this.endereco = endereco;
     }
 
-    public float getCNH() {
+    public String getCNH() {
         return CNH;
     }
 
-    public void setCNH(float CNH) {
+    public void setCNH(String CNH) {
         this.CNH = CNH;
     }
 
-    public float getTelRes() {
+    public String getTelRes() {
         return telRes;
     }
 
-    public void setTelRes(float telRes) {
+    public void setTelRes(String telRes) {
         this.telRes = telRes;
     }
 
@@ -72,11 +76,20 @@ public class cadastroCliente {
         this.bairro = bairro;
     }
 
-    public float getTelCel() {
+    public String getTelCel() {
         return telCel;
     }
 
-    public void setTelCel(float telCel) {
+    public void setTelCel(String telCel) {
         this.telCel = telCel;
-    }    
+    } 
+
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
+    
 }
