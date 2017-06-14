@@ -9,6 +9,7 @@ import classededados.GeradorId;
 import classededados.Marca;
 import persistencia.MarcaDAO;
 import interfacegrafica.telaCarro;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -104,6 +105,9 @@ public class telaMarca extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (jTextFieldMarca.getText().isEmpty())
+            JOptionPane.showMessageDialog(rootPane, "Preencha o campo marca");
+        
         try {
             GeradorId geradorId = new GeradorId();
             Marca eu = null;
@@ -113,7 +117,7 @@ public class telaMarca extends javax.swing.JFrame {
         MarcaDAO ele = new MarcaDAO();
         ele.incluir(eu);
         
-        
+        JOptionPane.showMessageDialog(rootPane,"Cadastro efetuado com sucesso");
         
         jTextFieldMarca.setText("");
         } catch (Exception e) {

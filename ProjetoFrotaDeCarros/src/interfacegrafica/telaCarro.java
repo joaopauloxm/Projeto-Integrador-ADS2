@@ -9,7 +9,7 @@ import classededados.GeradorId;
 import classededados
         
         .Marca;
-import classededados.Carros;
+import classededados.Carro;
 import classededados.Modelo;
 import interfacegrafica.telaMarca;
 import java.util.ArrayList;
@@ -17,6 +17,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import persistencia.carroDAO;
 import persistencia.MarcaDAO;
 import persistencia.modeloDAO;
@@ -88,6 +89,7 @@ MarcaDAO daoMarca = null;
         jTextFieldCor = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextFieldPessoal = new javax.swing.JTextField();
+        jButtonPesquisaCarro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,6 +139,13 @@ MarcaDAO daoMarca = null;
             }
         });
 
+        jButtonPesquisaCarro.setText("Pesquisar carro cadastrado");
+        jButtonPesquisaCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisaCarroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -144,17 +153,6 @@ MarcaDAO daoMarca = null;
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,6 +192,21 @@ MarcaDAO daoMarca = null;
                                     .addComponent(jTextFieldValorTrabalho, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
                                     .addComponent(jTextFieldPessoal))))
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addComponent(jButtonPesquisaCarro)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,9 +241,11 @@ MarcaDAO daoMarca = null;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jTextFieldPessoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonPesquisaCarro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jButton2))
         );
 
@@ -244,10 +259,18 @@ MarcaDAO daoMarca = null;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        if (jTextFieldAno.getText().isEmpty() ||
+                jTextFieldChassi.getText().isEmpty() || 
+                jTextFieldCor.getText().isEmpty() || 
+                jTextFieldPessoal.getText().isEmpty() || 
+                jTextFieldPlaca.getText().isEmpty() || 
+                jTextFieldValorTrabalho.getText().isEmpty()
+                )
+            JOptionPane.showMessageDialog(rootPane, "Prencha todos os campos.");
+            
         try {
             GeradorId geradorId = new GeradorId ();
-            Carros eu = new Carros
+            Carro eu = new Carro
                     (geradorId.getIdMarca(),jTextFieldPlaca.getText(),
                     jComboBoxModelo.getSelectedItem().toString(),
                     jComboBoxMarca.getSelectedItem().toString(),  
@@ -260,7 +283,7 @@ MarcaDAO daoMarca = null;
         
         carroDAO ele = new carroDAO();
             ele.incluir(eu);
-            
+            JOptionPane.showMessageDialog(rootPane,"Cadastro efetuado com sucesso");
             jTextFieldAno.setText("");
             jTextFieldChassi.setText("");
             jTextFieldCor.setText("");
@@ -281,6 +304,12 @@ MarcaDAO daoMarca = null;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPessoalActionPerformed
 
+    private void jButtonPesquisaCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaCarroActionPerformed
+        PesquisarCarros tela1 = new PesquisarCarros();
+        tela1.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonPesquisaCarroActionPerformed
+
 public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -297,6 +326,7 @@ public static void main(String args[]) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonPesquisaCarro;
     private javax.swing.JComboBox<String> jComboBoxMarca;
     private javax.swing.JComboBox<String> jComboBoxModelo;
     private javax.swing.JLabel jLabel1;

@@ -7,6 +7,7 @@ package interfacegrafica;
 
 import classededados.GeradorId;
 import classededados.Modelo;
+import javax.swing.JOptionPane;
 import persistencia.modeloDAO;
 
 /**
@@ -97,7 +98,9 @@ public class telaModelo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        if (jTextFieldModelo.getText().isEmpty())
+            JOptionPane.showMessageDialog(rootPane, "Preencha o campo modelo");
+            
         try {
             GeradorId geradorId = new GeradorId();
             Modelo eu = null;
@@ -106,7 +109,7 @@ public class telaModelo extends javax.swing.JFrame {
         
         modeloDAO ele = new modeloDAO();
         ele.incluir(eu);
-        
+        JOptionPane.showMessageDialog(rootPane,"Cadastro efetuado com sucesso");
         jTextFieldModelo.setText("");
         } catch (Exception e) {
         }

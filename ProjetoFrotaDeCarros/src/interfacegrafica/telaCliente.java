@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import persistencia.clienteDAO;
 import classededados.Marca;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -180,13 +181,37 @@ public class telaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
-       
+       if (jTextFieldBairro.getText().isEmpty() ||
+               jTextFieldCnh.getText().isEmpty() || 
+               jTextFieldCpf.getText().isEmpty() ||
+               jTextFieldEndereco.getText().isEmpty() ||
+               jTextFieldNome.getText().isEmpty() ||
+               jTextFieldTelCel.getText().isEmpty() ||
+               jTextFieldTelRes.getText().isEmpty()
+               )
+           JOptionPane.showMessageDialog(rootPane,"Preencha todos os campos");
         try {
         GeradorId geradorId = new GeradorId();
-        Cliente eu = new Cliente(geradorId.getIdMarca(),Float.parseFloat(jTextFieldCpf.getText()),jTextFieldNome.getText(),  jTextFieldEndereco.getText(), jTextFieldBairro.getText(), Integer.parseInt(jTextFieldCnh.getText()), Float.parseFloat(jTextFieldTelRes.getText()), Float.parseFloat(jTextFieldTelCel.getText()));
+        Cliente eu = new Cliente(geradorId.getIdMarca(),
+                jTextFieldCpf.getText(),
+                jTextFieldNome.getText(), 
+                jTextFieldEndereco.getText(), 
+                jTextFieldBairro.getText(), 
+                jTextFieldCnh.getText(),
+                jTextFieldTelRes.getText(),
+                jTextFieldTelCel.getText());
         clienteDAO obj = new clienteDAO();
         
        obj.incluir(eu);
+       JOptionPane.showMessageDialog(rootPane,"Cadastro efetuado com sucesso");
+       jTextFieldBairro.setText("");
+       jTextFieldCnh.setText("");
+       jTextFieldCpf.setText("");
+       jTextFieldEndereco.setText("");
+       jTextFieldNome.setText("");
+       jTextFieldTelCel.setText("");
+       jTextFieldTelRes.setText("");
+       
         } catch (Exception ex) {
             Logger.getLogger(telaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }

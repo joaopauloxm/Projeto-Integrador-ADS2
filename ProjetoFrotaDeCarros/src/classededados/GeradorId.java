@@ -36,9 +36,7 @@ public class GeradorId {
 			throw ex;
 		} finally {
 			if (bufferWIds != null) bufferWIds.close();
-			if (fileWIds != null) fileWIds.close();
 			if (bufferRIds != null) bufferRIds.close();
-			if (fileRIds != null) fileRIds.close();
 		}
 	}
 	

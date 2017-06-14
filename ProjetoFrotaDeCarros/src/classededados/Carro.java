@@ -1,19 +1,10 @@
 
 package classededados;
-
-<<<<<<< HEAD:ProjetoFrotaDeCarros/src/classededados/Carros.java
 import classededados.Marca;
 import java.util.ArrayList;
-
-public class Carros {
+public class Carro {
+    private ArrayList<Carro> carro = new ArrayList<Carro>();
     private int identificador = 0;
-=======
-import codigus.cadastroMarca;
-import java.util.ArrayList;
-
-public class cadastroCarros {
-    private ArrayList<cadastroCarros> carro = new ArrayList<cadastroCarros>();
->>>>>>> 0aae76b945a7a28cc8fd28c7246a5570da6c599d:ProjetoFrotaDeCarros/src/codigus/cadastroCarros.java
     private String marcaDoCarro = "";
     private String modeloDoCarro = "";
     private int anoDoCarro = 0;
@@ -23,8 +14,10 @@ public class cadastroCarros {
     private float valorTrabalho = 0;
     private float valorPessoal = 0;
             
-    
-     public Carros(int identificador, String placaDoCarro, String modeloDoCarro, String marcaDoCarro,  int anoDoCarro, float valorTrabalho, float valorPessoal, int chassi, String cor){
+     public Carro (){
+     
+     }
+     public Carro(int identificador, String placaDoCarro, String modeloDoCarro, String marcaDoCarro,  int anoDoCarro, float valorTrabalho, float valorPessoal, int chassi, String cor){
          this.identificador = identificador;
          this.placaDoCarro = placaDoCarro;
          this.marcaDoCarro = marcaDoCarro;

@@ -2,17 +2,9 @@
 package classededados;
 
 import java.util.ArrayList;
-
-
-<<<<<<< HEAD:ProjetoFrotaDeCarros/src/classededados/Marca.java
 public class Marca {
     private int identificador = 0;
-=======
-public class cadastroMarca {
-   
-    private ArrayList<cadastroMarca> marcas = new ArrayList<cadastroMarca>();    
-    
->>>>>>> 0aae76b945a7a28cc8fd28c7246a5570da6c599d:ProjetoFrotaDeCarros/src/codigus/cadastroMarca.java
+    private ArrayList<Marca> marcas = new ArrayList<Marca>();    
     private String marca = "";
 
     
@@ -36,6 +28,23 @@ public class cadastroMarca {
     public void setMarca(String marca) {
         this.marca = marca;
     }
+
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
+
+    public ArrayList<Marca> getMarcas() {
+        return marcas;
+    }
+
+    public void setMarcas(ArrayList<Marca> marcas) {
+        this.marcas = marcas;
+    }
+    
 
     
 }

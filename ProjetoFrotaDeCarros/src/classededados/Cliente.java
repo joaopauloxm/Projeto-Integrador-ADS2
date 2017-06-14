@@ -5,15 +5,19 @@ package classededados;
 public class Cliente {
 
     private int identificador = 0;
-    private float CPF = 0;
+    private String CPF = "";
     private String nomeDoCliente = "";
     private String endereco = "";
     private String bairro = "";
-    private float CNH = 0;
-    private float telRes = 0;
-    private float telCel = 0;
+    private String CNH = "";
+    private String telRes = "";
+    private String telCel = "";
     
-    public Cliente(int identificador, float CPF, String nomeDoCliente, String endereco,String bairro, float CNH, float telRes, float telCel){
+    
+    public Cliente(){
+    }
+    
+    public Cliente(int identificador, String CPF, String nomeDoCliente, String endereco,String bairro, String CNH, String telRes, String telCel){
         this.identificador = identificador;
         this.CPF = CPF;
         this.nomeDoCliente = nomeDoCliente;
@@ -32,11 +36,11 @@ public class Cliente {
         this.nomeDoCliente = nomeDoCliente;
     }
 
-    public float getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(float CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
@@ -48,19 +52,19 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public float getCNH() {
+    public String getCNH() {
         return CNH;
     }
 
-    public void setCNH(float CNH) {
+    public void setCNH(String CNH) {
         this.CNH = CNH;
     }
 
-    public float getTelRes() {
+    public String getTelRes() {
         return telRes;
     }
 
-    public void setTelRes(float telRes) {
+    public void setTelRes(String telRes) {
         this.telRes = telRes;
     }
 
@@ -72,11 +76,11 @@ public class Cliente {
         this.bairro = bairro;
     }
 
-    public float getTelCel() {
+    public String getTelCel() {
         return telCel;
     }
 
-    public void setTelCel(float telCel) {
+    public void setTelCel(String telCel) {
         this.telCel = telCel;
     } 
 
