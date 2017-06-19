@@ -57,7 +57,7 @@ public class PesquisarCliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Identificador", "Nome"
+                "CPF", "Nome"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -140,7 +140,7 @@ public class PesquisarCliente extends javax.swing.JFrame {
             clienteDAO clienteDao = new clienteDAO();
             model.setRowCount(0);
             for (Cliente cliente : clienteDao.listar()){
-                model.addRow(new Object[]{cliente.getIdentificador(), cliente.getNomeDoCliente()});
+                model.addRow(new Object[]{cliente.getNomeDoCliente(), cliente.getCPF()});
                 System.out.println(cliente.getNomeDoCliente());
             }
             jTable1.setModel(model);

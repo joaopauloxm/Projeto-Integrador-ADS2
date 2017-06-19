@@ -165,7 +165,9 @@ telaCarro tela1 = null;
     }//GEN-LAST:event_formWindowClosing
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
+        TelaDeLocação tela1 = new TelaDeLocação();
+        tela1.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
