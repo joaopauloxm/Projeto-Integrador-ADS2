@@ -60,7 +60,7 @@ public class PesquisarCarros extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Identificador", "Placa"
+                "Placa", "Modelo"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -128,7 +128,7 @@ public class PesquisarCarros extends javax.swing.JFrame {
             carroDAO carroDao = new carroDAO();
             model.setRowCount(0);
             for (Carro carro : carroDao.listar()){
-                model.addRow(new Object[]{carro.getIdentificador(), carro.getPlacaDoCarro()});
+                model.addRow(new Object[]{carro.getPlacaDoCarro(), carro.getModeloDoCarro()});
                 
             }
             jTable1.setModel(model);
